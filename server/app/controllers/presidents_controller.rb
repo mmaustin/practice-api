@@ -3,14 +3,14 @@ class PresidentsController < ApplicationController
 
   # GET /presidents
   def index
-    @presidents = President.all
+    presidents = President.all
 
-    render json: @presidents
+    render json: presidents.to_json(include: [:achievements], except: [:created_at, :updated_at])
   end
 
   # GET /presidents/1
   def show
-    render json: @president
+    render json: @president.to_json(include: [:achievements], except: [:created_at, :updated_at])
   end
 
   # POST /presidents

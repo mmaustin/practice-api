@@ -3,14 +3,14 @@ class AchievementsController < ApplicationController
 
   # GET /achievements
   def index
-    @achievements = Achievement.all
+    achievements = Achievement.all
 
-    render json: @achievements
+    render json: achievements.to_json(except: [:created_at, :updated_at])
   end
 
   # GET /achievements/1
   def show
-    render json: @achievement
+    render json: @achievement.to_json(except: [:created_at, :updated_at])
   end
 
   # POST /achievements
