@@ -12,20 +12,17 @@ class PresidentService {
         fetch(`${this.endpoint}/presidents`)
         .then(resp => resp.json())
         .then(presidents => {
-            for(const prez of presidents){
-                
-                div.innerHTML += `<div id="${prez.id}">${prez.name}</div>`
-                //innerDiv.appendChild(p)
-                //div.appendChild(d)
+            presidents.forEach(president => {
+                let string = ""
+                president.achievements.forEach(a => {
+                    string += `<li>${a.title}</li>`
+                })
+                div.innerHTML += `
+                <div id="${president.id}"><p>${president.name}</p>
+                <ul>${string}</ul></div>
+                `
+            })
 
-                /*prez.achievements.forEach(a => {
-                    const pTwo = document.createElement('p')
-                    pTwo.innerText = `${a.title}`
-                    innerDiv.appendChild(pTwo)
-                    //console.log(a)
-                    div.appendChild(innerDiv)
-                })*/
-            }
         })
     }
 
