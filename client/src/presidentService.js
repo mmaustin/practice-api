@@ -1,7 +1,7 @@
-const div = document.querySelector("#presidents-container")
+//const div = document.querySelector("#presidents-container")
 //const divTwo = document.querySelector("#achievements-container")
-const innerDiv = document.createElement('div')
-const d = document.createElement('div')
+//const innerDiv = document.createElement('div')
+//const d = document.createElement('div')
 
 class PresidentService {
     constructor(endpoint){
@@ -12,18 +12,18 @@ class PresidentService {
         fetch(`${this.endpoint}/presidents`)
         .then(resp => resp.json())
         .then(presidents => {
-            presidents.forEach(president => {
-                let string = ""
-                president.achievements.forEach(a => {
-                    string += `<li>${a.title}</li>`
-                })
-                div.innerHTML += `
-                <div id="${president.id}"><p>${president.name}</p>
-                <ul>${string}</ul></div>
-                `
-            })
-
+            for(const prez of presidents){
+                const p = new President(prez)
+                p.appendToDom()
+            }
         })
+    }
+
+    createPresident(){
+        const obj = {
+            name: document.getElementById("name").value
+        }
+        debugger
     }
 
 }
