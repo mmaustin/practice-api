@@ -1,7 +1,3 @@
-//const div = document.querySelector("#presidents-container")
-//const divTwo = document.querySelector("#achievements-container")
-//const innerDiv = document.createElement('div')
-//const d = document.createElement('div')
 
 class PresidentService {
     constructor(endpoint){
@@ -20,10 +16,27 @@ class PresidentService {
     }
 
     createPresident(){
-        const obj = {
+        const prezObj = {
             name: document.getElementById("name").value
         }
-        debugger
+        
+        const configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(prezObj)
+        }
+
+        fetch(`${this.endpoint}/presidents`, configObj)
+        .then(resp => resp.json())
+        .then(presidents => {
+            for(const prez of presidents){
+                const p = new President(prez)
+                p.appendToDom()
+            }
+        })
+
     }
 
 }

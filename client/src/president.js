@@ -1,9 +1,9 @@
-//const div = document.querySelector('#presidents-container')
 
 class President {
     static all = []
     static prezContainer = document.querySelector('#presidents-container')
     static prezForm = document.querySelector('#form-container')
+    //static workaround = document.querySelector('#workaround')
     constructor({id, name, achievements}){
         this.id = id
         this.name = name
@@ -12,6 +12,7 @@ class President {
         President.all.push(this)
 
     }
+
 
     appendToDom(){
         let string = ""
@@ -23,8 +24,10 @@ class President {
         <ul>${string}</ul><form>
         <input type="text">
         </form>
+        <button type="button" id="delete-bttn">Delete</button>
         </div>
         `
+
     }
 
     static newPrez(){
