@@ -25,15 +25,16 @@ document.body.addEventListener( 'click',   function(event)  {
 
   document.body.addEventListener( 'submit',   function(event)  {
     event.preventDefault
-    debugger
-    //if( event.target.id == 'achievement-form' ) {
+    //debugger
+    if( event.target.id == 'achievement-form' ) {
       const achievementObj = {
-        title: document.getElementById("title").value,
-        year: document.getElementById("year").value,
-        legislation: document.getElementById("legislation").value,
+        title: event.target.children[0].value,
+        year: event.target.children[2].value,
+        legislation: event.target.children[4].value,
         president_id: event.target.parentElement.id
     }
-    
+    //debugger
+
     const configObj = {
       method: "POST",
       headers: {
@@ -47,10 +48,9 @@ document.body.addEventListener( 'click',   function(event)  {
   .then(achievements => {
       for(const achievement of achievements){
           const a = new Achievement(achievement)
-          
+        
       }
   })
 
-    //};
-    //debugger
+    }; 
   } )
