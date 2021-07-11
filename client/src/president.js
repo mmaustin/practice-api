@@ -21,8 +21,11 @@ class President {
         })
         President.prezContainer.innerHTML += `
         <div id="${this.id}"><p>${this.name}</p>
-        <ul>${string}</ul><form>
-        <input type="text">
+        <ul>${string}</ul><form id="achievement-form">
+        Title: <input type="text" id="title"><br>
+        Year: <input type="number" id="year"><br>
+        Legislation: <input type="text" id="legislation"><br>
+        Submit: <input type="submit" id="achievement"><br>
         </form>
         <button type="button" id="delete-bttn">Delete</button>
         </div>
