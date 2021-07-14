@@ -56,12 +56,19 @@ document.body.addEventListener( 'click',   function(event)  {
   } )
 
   document.body.addEventListener( 'mouseover',   function(event)  {
-    if( event.target.id == 'achievement-form' ) {
+    if( event.target.id == 'list-item' ) {
         event.target.style.color = "blue";
     }
 
     setTimeout(function() {
       event.target.style.color = "";
-    }, 4500)
+    }, 1000)
   })
 
+  document.body.addEventListener( 'click',   function(event)  {
+    if( event.target.id == 'a-delete-bttn' ) {
+      //debugger
+      event.target.parentElement.remove()
+      fetch(base_url + '/' + 'achievements' + '/' + event.target.parentElement.dataset.achievementId, {method: 'DELETE'})
+    };
+  } )

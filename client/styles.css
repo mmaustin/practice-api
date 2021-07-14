@@ -1,3 +1,7 @@
 li, form {
     color: red;
 }
+
+.border {
+    border: 2px dotted blue;
+}

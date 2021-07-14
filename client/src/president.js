@@ -18,10 +18,11 @@ class President {
     appendToDom(){
         let string = ""
         this.achievements.forEach(a => {
-            string += `<li>${a.title}</li>`
+            string += `<li id="list-item" data-achievement-id="${a.id}">${a.title}
+            <button type="button" id="a-delete-bttn">Delete</button> </li>`
         })
         President.prezContainer.innerHTML += `
-        <div id="${this.id}"><p>${this.name}</p>
+        <div id="${this.id}" class="border"><p>${this.name}</p>
         <ul>${string}</ul><form id="achievement-form">
         Title: <input type="text" id="title"><br>
         Year: <input type="number" id="year"><br>
