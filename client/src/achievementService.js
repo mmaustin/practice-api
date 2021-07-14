@@ -9,6 +9,7 @@ class AchievementService {
         .then(achievements => {
             for(const achievement of achievements){
                 const a = new Achievement(achievement)
+                //a.printTitle()
                 //Use a, if i ever decide to do something with these objects
             }
         })

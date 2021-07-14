@@ -3,7 +3,8 @@ class President {
     static all = []
     static prezContainer = document.querySelector('#presidents-container')
     static prezForm = document.querySelector('#form-container')
-    //static workaround = document.querySelector('#workaround')
+    //I guess it's just convention to make the DOM elements class variables, but making them instance
+    //variables seems to work as well???
     constructor({id, name, achievements}){
         this.id = id
         this.name = name
@@ -35,7 +36,7 @@ class President {
 
     static newPrez(){
         President.prezForm.innerHTML += `
-        <form>
+        <form id="president-form">
             Name: <input type="text" id="name"><br>
             Submit: <input type="submit" id="create">
         </form>

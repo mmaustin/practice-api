@@ -10,4 +10,12 @@ class Achievement {
         Achievement.all.push(this)
 
     }
+
+    static printAll(){
+        console.log(this.all)
+    }
+
+    printTitle(){
+        console.log(this.title)
+    }
 }
