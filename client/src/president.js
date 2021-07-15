@@ -22,7 +22,7 @@ class President {
             <button type="button" id="a-delete-bttn">Delete</button> </li>`
         })
         President.prezContainer.innerHTML += `
-        <div id="${this.id}" class="border"><p>${this.name}</p>
+        <div id="${this.id}" class="border"><p>${this.name}</p><p>Achievements</p>
         <ul>${string}</ul><form id="achievement-form">
         Title: <input type="text" id="title"><br>
         Year: <input type="number" id="year"><br>

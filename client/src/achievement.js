@@ -18,4 +18,5 @@ class Achievement {
     printTitle(){
         console.log(this.title)
     }
+
 }
