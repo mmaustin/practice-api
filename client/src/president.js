@@ -27,7 +27,7 @@ class President {
         Title: <input type="text" id="title"><br>
         Year: <input type="number" id="year"><br>
         Legislation: <input type="text" id="legislation"><br>
-        Submit: <input type="submit" id="achievement"><br>
+        <input type="submit" id="achievement"><br>
         </form>
         <button type="button" id="delete-bttn">Delete</button>
         </div>
@@ -38,6 +38,7 @@ class President {
     static newPrez(){
         President.prezForm.innerHTML += `
         <form id="president-form">
+            New President<br>
             Name: <input type="text" id="name"><br>
             Submit: <input type="submit" id="create">
         </form>
