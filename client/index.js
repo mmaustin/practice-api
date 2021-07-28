@@ -3,6 +3,7 @@ const presidentService = new PresidentService(base_url)
 presidentService.getPresidents()
 President.newPrez()
 
+
 const achievementService = new AchievementService(base_url)
 achievementService.getAchievements()
 
@@ -10,8 +11,9 @@ President.prezForm.addEventListener('submit', handleSubmit)//you don't need the 
 //this could or could not be true.  What's for sure is that parens on the above handleSubmit messed everything else way up!!!
 
 function handleSubmit(event){
-  event.preventDefault
+  event.preventDefault()
   presidentService.createPresident()
+  event.target.reset()
 }
 
 document.body.addEventListener( 'click',   function(event)  {
@@ -24,7 +26,7 @@ document.body.addEventListener( 'click',   function(event)  {
 
 
   document.body.addEventListener( 'submit',   function(event)  {
-    event.preventDefault
+    event.preventDefault()
     //debugger
     if( event.target.id == 'achievement-form' ) {
       const achievementObj = {
@@ -45,15 +47,16 @@ document.body.addEventListener( 'click',   function(event)  {
 
   fetch(base_url + '/' + 'achievements', configObj)
   .then(resp => resp.json())
-  .then(achievements => {
-      for(const achievement of achievements){
+  .then(achievement => {
+      //for(const achievement of achievements){
           const a = new Achievement(achievement)
-        
-      }
+          a.aToDom()
+          event.target.reset()
+      //}
   })
 
     }; 
-  } )
+  } ) 
 
   document.body.addEventListener( 'mouseover',   function(event)  {
     if( event.target.id == 'list-item' ) {

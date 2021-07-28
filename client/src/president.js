@@ -16,14 +16,16 @@ class President {
 
 
     appendToDom(){
+
         let string = ""
+        if (this.achievements !== undefined)
         this.achievements.forEach(a => {
             string += `<li id="list-item" data-achievement-id="${a.id}">${a.title}
             <button type="button" id="a-delete-bttn">Delete</button> </li>`
         })
         President.prezContainer.innerHTML += `
         <div id="${this.id}" class="border"><p>${this.name}</p><p>Achievements</p>
-        <ul>${string}</ul><form id="achievement-form">
+        <ul id="ul-${this.id}">${string}</ul><form id="achievement-form">
         Title: <input type="text" id="title"><br>
         Year: <input type="number" id="year"><br>
         Legislation: <input type="text" id="legislation"><br>
@@ -45,12 +47,20 @@ class President {
         `
     }
 
-
 }
 
 
 
-
+/*
+<form id="achievement-form">
+        Title: <input type="text" id="title"><br>
+        Year: <input type="number" id="year"><br>
+        Legislation: <input type="text" id="legislation"><br>
+        <input type="submit" id="achievement"><br>
+        </form>
+        <button type="button" id="delete-bttn">Delete</button>
+        </div>
+*/
 
 /*
 presidents.forEach(president => {

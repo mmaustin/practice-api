@@ -8,9 +8,7 @@ class AchievementService {
         .then(resp => resp.json())
         .then(achievements => {
             for(const achievement of achievements){
-                console.log(achievement)
                 const a = new Achievement(achievement)
-
                 //a.printTitle()
                 //Use a, if i ever decide to do something with these objects
             }
