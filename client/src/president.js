@@ -23,7 +23,7 @@ class President {
             string += `<li id="list-item" data-achievement-id="${a.id}">${a.title}
             <button type="button" id="a-delete-bttn">Delete</button> </li>`
         })
-        President.prezContainer.innerHTML += `
+        /*President.prezContainer.innerHTML += `
         <div id="${this.id}" class="border"><p>${this.name}</p><p>Achievements</p>
         <ul id="ul-${this.id}">${string}</ul><form id="achievement-form">
         Title: <input type="text" id="title"><br>
@@ -33,18 +33,30 @@ class President {
         </form>
         <button type="button" id="delete-bttn">Delete</button>
         </div>
-        `
+        `*/
+        President.prezContainer.insertAdjacentHTML('beforeend', `<div id="try-${this.id}" class="border">`)
+        let b = document.querySelector(`#try-${this.id}`)
+        b.insertAdjacentHTML('afterbegin', `<p>${this.name}</p>`)
+        //President.prezContainer.insertAdjacentHTML('beforeend', `<p>${this.name}</p>`)
+        b.insertAdjacentHTML('beforeend', '<p>Achievements</p>')
+        b.insertAdjacentHTML('beforeend', `<ul id="ul-${this.id}">${string}</ul>`)
 
     }
 
     static newPrez(){
-        President.prezForm.innerHTML += `
+       /* President.prezForm.innerHTML += `
         <form id="president-form">
             New President<br>
             Name: <input type="text" id="name"><br>
             Submit: <input type="submit" id="create">
         </form>
-        `
+        `*/
+
+        President.prezForm.insertAdjacentHTML('beforeend', '<form id="president-form"><br>New President<br></form>')
+        const f = document.querySelector('#president-form')
+        f.insertAdjacentHTML('beforeend', 'Name: <input type="text" id="name"><br>')
+        f.insertAdjacentHTML('beforeend', 'Submit: <input type="submit" id="create"><br>')
+
     }
 
 }
