@@ -23,7 +23,9 @@ class President {
             string += `<li id="list-item" data-achievement-id="${a.id}">${a.title}
             <button type="button" id="a-delete-bttn">Delete</button> </li>`
         })
-        /*President.prezContainer.innerHTML += `
+
+        /*
+        President.prezContainer.innerHTML += `
         <div id="${this.id}" class="border"><p>${this.name}</p><p>Achievements</p>
         <ul id="ul-${this.id}">${string}</ul><form id="achievement-form">
         Title: <input type="text" id="title"><br>
@@ -33,14 +35,27 @@ class President {
         </form>
         <button type="button" id="delete-bttn">Delete</button>
         </div>
-        `*/
-        President.prezContainer.insertAdjacentHTML('beforeend', `<div id="try-${this.id}" class="border">`)
-        let b = document.querySelector(`#try-${this.id}`)
+        `
+        */
+        
+        
+        //President.prezContainer.insertAdjacentHTML('beforeend', `<div id="try-${this.id}" class="border"></div>`)
+        //let b = document.querySelector(`#try-${this.id}`)
+        President.prezContainer.insertAdjacentHTML('beforeend', `<div id="${this.id}" class="border"></div>`)
+        let b = document.querySelector(`div [id="${this.id}"]`)
         b.insertAdjacentHTML('afterbegin', `<p>${this.name}</p>`)
         //President.prezContainer.insertAdjacentHTML('beforeend', `<p>${this.name}</p>`)
         b.insertAdjacentHTML('beforeend', '<p>Achievements</p>')
         b.insertAdjacentHTML('beforeend', `<ul id="ul-${this.id}">${string}</ul>`)
-
+        b.insertAdjacentHTML('beforeend', `<form id="achievement-form-${this.id}" class="achievement-form"></form>`)
+        //Title: <input type="text" id="title"><br>Year: <input type="number" id="year"><br>Legislation: <input type="text" id="legislation"><br><input type="submit" id="achievement"><br></form>
+        const g = document.querySelector(`#achievement-form-${this.id}`)
+        g.insertAdjacentHTML('beforeend', 'Title: <input type="text" id="title"><br>')
+        g.insertAdjacentHTML('beforeend', 'Year: <input type="number" id="year"><br>')
+        g.insertAdjacentHTML('beforeend', 'Legislation: <input type="text" id="legislation"><br>')
+        g.insertAdjacentHTML('beforeend', '<input type="submit" id="achievement"><br>')
+        b.insertAdjacentHTML('beforeend', '<button type="button" id="delete-bttn">Delete</button>')
+        
     }
 
     static newPrez(){

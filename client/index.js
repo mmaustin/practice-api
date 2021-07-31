@@ -28,7 +28,8 @@ document.body.addEventListener( 'click',   function(event)  {
   document.body.addEventListener( 'submit',   function(event)  {
     event.preventDefault()
     //debugger
-    if( event.target.id == 'achievement-form' ) {
+    //if( event.target.id === `achievement-form` ) {
+      //debugger
       const achievementObj = {
         title: event.target.children[0].value,
         year: event.target.children[2].value,
@@ -49,13 +50,15 @@ document.body.addEventListener( 'click',   function(event)  {
   .then(resp => resp.json())
   .then(achievement => {
       //for(const achievement of achievements){
+        
           const a = new Achievement(achievement)
+          console.log(a)
           a.aToDom()
           event.target.reset()
       //}
   })
 
-    }; 
+    //}; 
   } ) 
 
   document.body.addEventListener( 'mouseover',   function(event)  {

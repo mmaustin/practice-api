@@ -21,8 +21,20 @@ class Achievement {
     }
 
     aToDom(){
-        document.querySelector(`#ul-${this.president_id}`).innerHTML += `<li id="list-item" data-achievement-id="${this.id}">${this.title}
-        <button type="button" id="a-delete-bttn">Delete</button> </li>`
+        //language for using literals and insertAdjacentHTML apparently. so confused why this is working???
+        //document.querySelector(`#ul-${this.president_id}`).innerHTML += `<li id="list-item" data-achievement-id="${this.id}">${this.title}
+        //<button type="button" id="a-delete-bttn">Delete</button> </li>`
+
+        
+        const q = document.querySelector(`#ul-${this.president_id}`)
+        q.insertAdjacentHTML('beforeend', `<li id="list-item" data-achievement-id="${this.id}">${this.title}<button type="button" id="a-delete-bttn">Delete</button></li>`)
+        //const z = document.querySelector(`li [data-achievement-id="${this.id}"]`)
+        //z.insertAdjacentHTML('afterend', '<button type="button" id="a-delete-bttn">Delete</button>')
+        
+
+        //language for using iAHTML
+        //document.querySelector(`ul`).insertAdjacentHTML('beforeend', `<li id="list-item" data-achievement-id="${this.id}">${this.title}
+        //<button type="button" id="a-delete-bttn">Delete</button> </li>`)
     }
 
 }
