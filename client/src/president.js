@@ -20,7 +20,7 @@ class President {
         let string = ""
         if (this.achievements !== undefined)
         this.achievements.forEach(a => {
-            string += `<li id="list-item" data-achievement-id="${a.id}">${a.title}
+            string += `<li id="list-item-${a.id}" data-achievement-id="${a.id}">${a.title}
             <button type="button" id="a-delete-bttn">Delete</button> </li>`
         })
 

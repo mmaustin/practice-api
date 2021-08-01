@@ -27,9 +27,10 @@ class Achievement {
 
         
         const q = document.querySelector(`#ul-${this.president_id}`)
-        q.insertAdjacentHTML('beforeend', `<li id="list-item" data-achievement-id="${this.id}">${this.title}<button type="button" id="a-delete-bttn">Delete</button></li>`)
+        q.insertAdjacentHTML('beforeend', `<li id="list-item-${this.id}" data-achievement-id="${this.id}">${this.title}</li>`)//<button type="button" id="a-delete-bttn">Delete</button></li>`)
         //const z = document.querySelector(`li [data-achievement-id="${this.id}"]`)
-        //z.insertAdjacentHTML('afterend', '<button type="button" id="a-delete-bttn">Delete</button>')
+        const z = document.querySelector(`#list-item-${this.id}`)
+        z.insertAdjacentHTML('beforeend', '<button type="button" id="a-delete-bttn">Delete</button>')
         
 
         //language for using iAHTML
